@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Portable directory
+# Portable directoryhardware-monitor-xfce
 readonly DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Size used for the icons is 24x24 (16x16 is also ok for a smaller panel)
@@ -11,7 +11,7 @@ declare -r CPU_ARRAY=($(awk '/MHz/{print $4}' /proc/cpuinfo | cut -f1 -d"."))
 # Number of logical CPU
 readonly NUM_OF_CPUS="${#CPU_ARRAY[@]}"
 # Tempretature
-readonly CPU_TEMP="$(sensors | grep -A 0 SMBUSMASTER | cut -f2- -d: | sed "s/[^0-9'.]//g")"
+readonly CPU_TEMP="$(sensors | grep -A 0 "CPU Temperature" | cut -f2- -d: | sed "s/[^0-9'.]//g")"
 
 # Tooltip
 MORE_INFO="<tool>"
